@@ -1,0 +1,11 @@
+<% flash.each do |task_type, task| %>
+  <div><%= task %></div>
+<% end %>
+
+ <body>
+    <div class="container">
+      <%= render 'layouts/flash_tasks' %>
+
+      <%= yield %>
+    </div>
+  </body>

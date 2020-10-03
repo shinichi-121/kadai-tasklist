@@ -1,6 +1,6 @@
 <h1>タスクの編集</h1>
 
-<%= form_for(@task) do |f| %>
+<%= form_with(model:@task, locol:true ) do |f| %>
   <%= f.label :content, "タスク" %>
   <%= f.text_field :content %>
 

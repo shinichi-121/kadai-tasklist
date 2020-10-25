@@ -9,7 +9,6 @@ class TasksController < ApplicationController
   end
 
   def show 
-    current_user.tasks 
   end
 
   def new
@@ -29,7 +28,6 @@ class TasksController < ApplicationController
   end
 
   def edit
-    current_user.tasks 
   end
 
   def update

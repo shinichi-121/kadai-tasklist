@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show,:edit,:update,:destroy]
+  # before_action :set_task, only: [:show,:edit,:update,:destroy]
   before_action :require_user_logged_in
-  before_action :correct_user, only:  [:creat,:update,:destroy]
+  before_action :correct_user, only:  [:show,:edit,:update,:destroy]
  
   
   
@@ -10,6 +10,7 @@ class TasksController < ApplicationController
   end
 
   def show 
+    current_user.tasks 
   end
 
   def new
@@ -29,10 +30,11 @@ class TasksController < ApplicationController
   end
 
   def edit
+    current_user.tasks 
   end
 
   def update
-    if @task.update(task_params)
+    if @task.update(task_params) 
       flash[:success] = "タスクが編集されました"
       redirect_to @task
     else
@@ -50,9 +52,9 @@ class TasksController < ApplicationController
   
   private
   
-  def set_task
-    @task = Task.find(params[:id])
-  end 
+  # def set_task
+  #   @task = Task.find(params[:id])
+  # end 
 
   def task_params
     params.require(:task).permit(:content, :status)
